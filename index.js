@@ -1,14 +1,20 @@
 const express=require('express');
 const app=express();
 const mongoose = require('mongoose');
-const UserModel=require("./models/userModel");
 const LeadModel=require("./models/LeadModel");
+const route=require("./routes/userRoutes")
+
 const dotenv=require('dotenv')
 dotenv.config();
+
+app.use(express.json())
+app.use("/api/auth",route);
 
 app.listen(8080,()=>{
     console.log("server is listening to port 8080");
 })
+
+
 
 const start=async()=>{
     try{
