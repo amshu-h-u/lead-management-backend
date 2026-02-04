@@ -1,7 +1,6 @@
 const express=require('express');
 const app=express();
 const mongoose = require('mongoose');
-const LeadModel=require("./models/LeadModel");
 const route=require("./routes/userRoutes")
 const leadRoute=require("./routes/leadRoutes")
 const dotenv=require('dotenv')
