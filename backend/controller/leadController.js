@@ -1,6 +1,7 @@
 const leadModel=require("../models/LeadModel");
 
 const createLead=async(req,res)=>{
+    console.log(req.user);
     try{
         const lead=await leadModel.create({
             name:req.body.name,
@@ -10,9 +11,10 @@ const createLead=async(req,res)=>{
             source:req.body.source,
             createdBy:req.user.id
         })
-        res.status(201).json(lead);
+        res.status(201).json({message:"Lead created Successfully",lead});
     }catch(err){
         res.status(500).json({error:err.message});
+        console.log(err)
     }
 }
 
